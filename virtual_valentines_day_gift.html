@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love - Averie</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Patrick+Hand&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Patrick Hand', cursive;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.active { opacity: 1; z-index: 1; }
+
+.arrow { position: absolute; bottom: 50px; font-size: 2.5rem; color: #ff4d94; cursor: pointer; display: flex; flex-direction: column; align-items: center; animation: bounce 1s infinite; user-select: none; }
+.arrow-back { left: 50px; }
+.arrow-next { right: 50px; }
+
+@keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+.arrow::after { content: "❤"; display: block; font-size: 3rem; margin-top: 5px; }
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff66b2;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #fff,-2px 2px 0 #fff,2px -2px 0 #fff,-2px -2px 0 #fff;
+}
+
+.note { font-size: 1.8rem; color: #ff4d94; max-width: 700px; line-height: 1.8; background: rgba(255,255,255,0.7); padding: 20px; border-radius: 15px; box-shadow:0 0 15px pink; text-shadow:2px2px0 #fff,-2px2px0 #fff,2px-2px0 #fff,-2px-2px0 #fff; }
+
+.notebook {
+    background: url('https://sl.bing.net/iMNrEO6to0O') no-repeat center center;
+    background-size: contain;
+    width: 80%;
+    max-width: 700px;
+    height: 500px;
+    padding: 40px 30px 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px pink;
+    color: #c71585;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-shadow: 2px 2px 0 #fff,-2px 2px 0 #fff,2px -2px 0 #fff,-2px -2px 0 #fff;
+}
+
+.paragraph { margin-bottom: 100px; }
+.script { font-family:'Pacifico', cursive; font-size:1.4rem; color:#ff66cc; position:absolute; bottom:20px; right:20px; max-width:90%; text-shadow:2px2px0 #fff,-2px2px0 #fff,2px-2px0 #fff,-2px-2px0 #fff; }
+
+.page3 h1 { font-size:4.5rem; color:#ff1a75; text-shadow:2px2px0 #fff,-2px2px0 #fff,2px-2px0 #fff,-2px-2px0 #fff; transform:rotate(-5deg); margin-bottom:20px; animation:pulse 1.2s infinite; }
+
+@keyframes pulse { 0%,100%{transform:scale(1) rotate(-5deg);}50%{transform:scale(1.05) rotate(-5deg);} }
+
+.photos { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.photos img { width:300px; height:auto; border-radius:20px; box-shadow:0 0 15px pink; transition: transform 0.3s, box-shadow 0.3s; }
+.photos img:hover { transform: scale(1.05); box-shadow:0 0 30px #ff4d94; }
+
+.heart { position:absolute; font-size:1.5rem; color:#ff4d94; user-select:none; animation: float 6s linear infinite; opacity:0.8; }
+@keyframes float { 0%{transform:translateY(100vh) scale(0.5);opacity:0.7;}50%{opacity:1;}100%{transform:translateY(-100vh) scale(1);opacity:0;} }
+
+.confetti { position:absolute; width:10px; height:10px; background-color:#ff4d94; opacity:0.8; pointer-events:none; animation:confettiFall linear infinite; }
+@keyframes confettiFall {0%{transform:translateY(-10px) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
+
+.web { position:absolute; width:4px; height:4px; background:#00f; border-radius:50%; animation:webFall 1s linear forwards; pointer-events:none; }
+@keyframes webFall {0%{transform:translateY(0) scale(0);}100%{transform:translateY(-300px) scale(1);opacity:0;}}
+
+</style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<!-- Page 1 -->
+<div class="page active" id="page1" style="background-image:url('https://i.pinimg.com/736x/70/26/c8/7026c87703954292a3918932c94cf6c3.jpg');">
+    <h1>Happy Valentine's Day</h1>
+    <div class="note">I love you dearly my love. Averie, since the day I met you my life has been brighter, you've changed me in ways I didn't know I could. You helped me grow as a man, you make me want to be better.</div>
+    <div class="arrow arrow-next" onclick="nextPage(2)"></div>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2" style="background-image:url('https://i.pinimg.com/736x/27/2a/88/272a88a114ca5b6d7ec3ac742bfb9266.jpg');">
+    <div class="notebook">
+        <div class="paragraph" id="typing"></div>
+        <div class="script">Song of Solomon 8:7: "Many waters cannot quench love, neither can floods drown it. If a man would give all the wealth of his house for love, it would be utterly despised."</div>
+    </div>
+    <div class="arrow arrow-back" onclick="prevPage(1)"></div>
+    <div class="arrow arrow-next" onclick="nextPage(3)"></div>
+</div>
+
+<!-- Page 3 -->
+<div class="page page3" id="page3" style="background-image:url('https://i.pinimg.com/736x/cf/2f/ec/cf2fec52981c1af5819b4f644b7c202b.jpg');">
+    <h1 id="loveText">I Love You, Averie!</h1>
+    <div class="photos">
+        <!-- Add your photos here -->
+        <!-- <img src="photo1.jpg" alt="Us"> -->
+        <!-- <img src="photo2.jpg" alt="Us"> -->
+    </div>
+    <div class="arrow arrow-back" onclick="prevPage(2)"></div>
+</div>
+
+<script>
+// Typing animation
+const message = `Averie my love, Happy Valentines day. This day is about us, the most romantic day. A day where we can celebrate our love, show it and own it. I want to write this to show you I love you baby. You are truly a blessing from God, his daughter and soldier. Your smile can cure any dark days, and your voice can make flowers bloom. Your beauty makes my heart melt. From the moment I met you my heart raced, and that moment when I asked to be your boyfriend, I knew I was in love with you.`;
+let i=0;
+function typeMessage(){if(document.getElementById('page2').classList.contains('active')){if(i<message.length){document.getElementById('typing').innerHTML+=message.charAt(i);i++;setTimeout(typeMessage,30);}}}
+
+// Floating hearts
+function createHeart(){const heart=document.createElement('div');heart.classList.add('heart');heart.style.left=Math.random()*window.innerWidth+'px';heart.style.fontSize=12+Math.random()*24+'px';heart.style.animationDuration=5+Math.random()*5+'s';heart.innerHTML='❤';document.body.appendChild(heart);setTimeout(()=>{heart.remove();},10000);}
+setInterval(createHeart,500);
+
+// Confetti for Page 3
+function createConfetti(){if(!document.getElementById('page3').classList.contains('active')) return;for(let j=0;j<5;j++){const c=document.createElement('div');c.classList.add('confetti');c.style.left=Math.random()*window.innerWidth+'px';c.style.backgroundColor=['#ff4d94','#ff66b2','#ffc0cb','#fff'][Math.floor(Math.random()*4)];c.style.width=8+Math.random()*8+'px';c.style.height=8+Math.random()*8+'px';c.style.animationDuration=3+Math.random()*3+'s';document.body.appendChild(c);setTimeout(()=>{c.remove();},6000);}}
+setInterval(createConfetti,300);
+
+// Web shooting effect
+function shootWeb(x,y){const web=document.createElement('div');web.classList.add('web');web.style.left=x+'px';web.style.top=y+'px';document.body.appendChild(web);setTimeout(()=>{web.remove();},1000);}
+
+// Page navigation
+function nextPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const p=document.getElementById('page'+n);p.classList.add('active');if(n===2){i=0;typeMessage();}}
+function prevPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page'+n).classList.add('active');}
+
+// Interactive clicks on Page 3
+document.body.addEventListener('click',function(e){
+    if(document.getElementById('page3').classList.contains('active')){
+        // Mini hearts explosion
+        for(let k=0;k<5;k++){const h=document.createElement('div');h.classList.add('heart');h.style.left=(e.clientX+Math.random()*30-15)+'px';h.style.top=(e.clientY+Math.random()*30-15)+'px';h.style.fontSize=10+Math.random()*20+'px';document.body.appendChild(h);setTimeout(()=>{h.remove();},1000);}
+        // Spider-Man web effect
+        shootWeb(e.clientX,e.clientY);
+    }
+});
+
+window.onload = typeMessage;
+</script>
+
+</body>
+</html>
